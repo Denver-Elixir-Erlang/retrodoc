@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :retrodoc, Retrodoc.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("DATABASE_USERNAME"),
+  password: System.get_env("DATABASE_PASSWORD"),
   database: "retrodoc_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

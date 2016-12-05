@@ -36,6 +36,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :retrodoc, Retrodoc.Repo,
   adapter: Ecto.Adapters.Postgres,
+  username: System.get_env("DATABASE_USERNAME"),
+  password: System.get_env("DATABASE_PASSWORD"),
   database: "retrodoc_dev",
   hostname: "localhost",
   pool_size: 10
