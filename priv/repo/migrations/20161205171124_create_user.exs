@@ -4,7 +4,7 @@ defmodule Retrodoc.Repo.Migrations.CreateUser do
   def change do
     create table(:users) do
       add :email, :string
-      add :crypted_password, :string
+      add :password, :string
 
       timestamps()
     end

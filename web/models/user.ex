@@ -3,7 +3,7 @@ defmodule Retrodoc.User do
 
   schema "users" do
     field :email, :string
-    field :crypted_password, :string
+    field :password, :string
 
     timestamps()
   end
@@ -13,8 +13,10 @@ defmodule Retrodoc.User do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:email, :crypted_password])
-    |> validate_required([:email, :crypted_password])
+    |> cast(params, [:email, :password])
+    |> validate_required([:email, :password])
     |> unique_constraint(:email)
+    |> validate_format(:email, ~r/[\w\d%+-]+@[\w\d.-]+\.[\w]{2,4}/)
+    |> validate_length(:password, min: 5)
   end
 end
