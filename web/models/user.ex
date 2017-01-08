@@ -1,9 +1,12 @@
 defmodule Retrodoc.User do
   use Retrodoc.Web, :model
+   @required_fields ~w(email password)
+   @optional_fields ~w()
 
   schema "users" do
     field :email, :string
-    field :password, :string
+    field :crypted_password, :string
+    field :password, :string, virtual: true
 
     timestamps()
   end
@@ -13,7 +16,7 @@ defmodule Retrodoc.User do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:email, :password])
+    |> cast(params, @required_fields, @optional_fields)
     |> validate_required([:email, :password])
     |> unique_constraint(:email)
     |> validate_format(:email, ~r/[\w\d%+-]+@[\w\d.-]+\.[\w]{2,4}/)
