@@ -1,1 +1,17 @@
 /* This file is for your main application css. */
+body {
+  background-color: #cee5e1
+}
+
+a {
+  color: #483d8b;
+}
+
+a:hover {
+  color: #4682b4;
+}
+
+.title-header {
+  font-size: 40px;
+}
+
