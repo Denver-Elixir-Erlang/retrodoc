@@ -17,7 +17,7 @@
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
             <%= if logged_in?(@conn) do %>
-              <li><%= current_user(@conn).email %></li>
+              <li><%= current_user(@conn).email %> | </li>
               <li><%= link "Logout", to: session_path(@conn, :delete), method: :delete %></li>
             <% else %>
               <li><%= link "Login",    to: "/login" %></li>
@@ -25,7 +25,7 @@
             <% end %>
           </ul>
         </nav>
-        <span class="logo"></span>
+        <span class="title-header">🆁🅴🆃🆁🅾🅳🅾🅲 </span>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
