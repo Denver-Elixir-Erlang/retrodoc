@@ -14,8 +14,9 @@ defmodule Retrodoc.RegistrationController do
       # sign in the user
       {:ok, _user} ->
       conn
-      |> put_session(:current_user, changeset.id)
       |> put_flash(:info, "Your account was created")
+      #TODO: currently breaking on id
+      #|> put_session(:current_user, changeset.id)
       #|> redirect(to: page_path(conn, :index))
       |> redirect(to: "/")
 
